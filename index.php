@@ -7,7 +7,7 @@ require  'vendor/autoload.php';
 // Load kavenegar function
 require  'gateways/kavenegar.php';
 
-$json_data = '
+/* Webhook test data
 {
     "organization_name": "Organization", 
     "webhook_event_id": 42571, "organization_id": 125, 
@@ -31,14 +31,14 @@ $json_data = '
     "webhook_id": 400, 
     "webhook_event_created_on": "2018-10-27T10:27:58.703970+00:00"
 }
-';
+*/
 
-// $json_data = file_get_contents("php://input");
+$json_data = file_get_contents("php://input");
 $data = json_decode($json_data);
 $webhook_event_data = $data->webhook_event_data;
 
 
-if ($webhook_event_data->http_status_code = 200) {
+if ($webhook_event_data->http_status_code != 200) {
 
     $message = "Your application has a problem. Application name: $webhook_event_data->application_name. ";
     kavenegar_send($kavenegarApi, $sendnumber, $phoneNumber, $message);
