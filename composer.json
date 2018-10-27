@@ -1,5 +1,6 @@
 {
     "require": {
-        "kavenegar/php": "^1.2"
+        "kavenegar/php": "^1.2",
+        "arcturial/clickatell": "^3.0"
     }
 }
