@@ -1,11 +1,16 @@
 <?php 
 
-/* Sometime phone number format is difrent betwen webservices, 
-Because of this, I set two variable */
-$phoneNumber = '';
-$contryCode = '';
+## kavenegar.com API config ##
+$apiKeys ['kavenegar'] = '';
+$receptor ['kavenegar'] = '';
 
 
-## Kavenegar API config ##
-$kavenegarApi = 'API Key';
-$senderNumber = '100065995';
+## clickatell.com API config ##
+$apiKeys ['clickatell'] = '';
+$receptor ['clickatell'] = '';
+
+## Select active sender
+$activeSender = array(
+                'kavenegar' => true ,
+                'clickatell' => true
+                 );
