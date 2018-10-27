@@ -1,12 +1,11 @@
 <?php
     
     
-    function kavenegar_send($ApiKey, $sendnumber, $receptor, $message)
+    function kavenegar_send($apiKey, $receptor, $message)
     {
-
         try
         {   
-            $api = new \Kavenegar\KavenegarApi($ApiKey);
+            $api = new \Kavenegar\KavenegarApi($apiKey);
             $api->Send($sendnumper,$receptor,$message);
         }
         catch(ApiException $ex)
