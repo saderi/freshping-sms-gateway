@@ -17,9 +17,9 @@ require  'vendor/autoload.php';
 
 $data = json_decode($json_data);
 $webhook_event_data = $data->webhook_event_data;
-if ($webhook_event_data->http_status_code != 200) {
+if ($webhook_event_data->check_state_name == 'Not Responding') {
 
-    $message = "Your site has a problem. Site name: $webhook_event_data->application_name.";
+    $message = "Your site has a problem. Site name: $webhook_event_data->request_url.";
     foreach ($activeSender as $senderName => $senderStatus) {
         if ($senderStatus) {
             require  "gateways/$senderName.php";
