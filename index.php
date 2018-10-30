@@ -17,7 +17,8 @@ require  'vendor/autoload.php';
 
 $data = json_decode($json_data);
 $webhook_event_data = $data->webhook_event_data;
-if ($webhook_event_data->check_state_name == 'Not Responding') {
+if ($webhook_event_data->check_state_name == 'Not Responding' && 
+    !in_array($webhook_event_data->check_name, $exceptionList)) {
 
     $message = "Your site has a problem. Site name: $webhook_event_data->request_url.";
     foreach ($activeSender as $senderName => $senderStatus) {
